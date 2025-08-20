@@ -1,4 +1,4 @@
-pipeline {
+pipeline {  
     agent any
 
     stages {
@@ -15,7 +15,6 @@ terraform validate
   '''
       }
    }
-        }
         stage('plan') {
             steps {
                 echo 'Planning..'
