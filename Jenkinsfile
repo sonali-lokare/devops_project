@@ -3,6 +3,7 @@ pipeline {
 
     stages {
         stage('Init'){
+            steps{
       withCredentials([azureServicePrincipal('AZURE_SP')]) {
       sh '''
  export ARM_CLIENT_ID=$AZURE_CLIENT_ID
@@ -15,6 +16,7 @@ terraform validate
   '''
       }
    }
+        }
         stage('plan') {
             steps {
                 echo 'Planning..'
