@@ -86,8 +86,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
   ]
 
   # SSH only (no password logins)
- disable_password_authentication = true
- admin_ssh_key {
+  disable_password_authentication = true
+  admin_ssh_key {
     username   = "ubuntu"
     public_key = file("~/.ssh/id_rsa.pub")
     #path = "/home/adminuser/.ssh/authorized_keys"
