@@ -15,6 +15,7 @@ pipeline {
         terraform init -input=false -backend-config="resource_group_name=devops" -backend-config="storage_account_name=devopssonali" -backend-config="container_name=devops" -backend-config="key=terraform.tfstate"
         terraform fmt -check -recursive
         terraform validate
+        terraform plan -out=devops.tfplan
         '''
         }
     }
@@ -22,7 +23,6 @@ pipeline {
         stage('plan') {
             steps {
                 echo 'Planning..'
-                terraform plan -out=devops.tfplan
             }
         }
         stage('apply') {
