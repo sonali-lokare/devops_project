@@ -22,7 +22,7 @@ pipeline {
         stage('plan') {
             steps {
                 echo 'Planning..'
-                terraform plan -input=false  -out=devops.tfplan
+                terraform plan -out=devops.tfplan
             }
         }
         stage('apply') {
